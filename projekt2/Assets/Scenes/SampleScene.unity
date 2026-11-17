@@ -309,7 +309,11 @@ MonoBehaviour:
   livesText: {fileID: 449172144}
   titleScreen: {fileID: 1917046580}
   gameOverScreen: {fileID: 1302123351}
-  cakePrefab: {fileID: 5464568849379888483, guid: d7486382d1837124c849cb0fde1d9dba, type: 3}
+  sweetPrefabs:
+  - {fileID: 8000043724363151049, guid: 1eb8a3c253040a84ca2c4bfa38cf633a, type: 3}
+  - {fileID: 1737699358644967904, guid: 70e40e5517a284b46a98eb61d74f29fd, type: 3}
+  - {fileID: 5219891377656094907, guid: e66bc903bafdbde43b177d7c14b2e034, type: 3}
+  - {fileID: 5464568849379888483, guid: d7486382d1837124c849cb0fde1d9dba, type: 3}
   spawnRate: 1.5
   gravityMultiplier: 1
 --- !u!1 &422224497

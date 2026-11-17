@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    [Header("Wartość Punktowa")]
+    public int pointValue = 1;
+
     void Update()
     {
         if (transform.position.y < -6.25f)
@@ -18,7 +21,7 @@ public class Target : MonoBehaviour
     {
         if (GameManager.instance != null && GameManager.instance.isGameActive)
         {
-            GameManager.instance.UpdateScore(1);
+            GameManager.instance.UpdateScore(pointValue);
             Destroy(gameObject);
         }
     }

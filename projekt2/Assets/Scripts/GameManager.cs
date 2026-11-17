@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
 
     [Header("Ustawienia Spawnera")]
-    public GameObject cakePrefab;
+    public GameObject[] sweetPrefabs;
     public float spawnRate = 1.5f;
     private float initialSpawnRate = 1.5f;
     private float minX = -7f;
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         StopAllCoroutines();
 
-        Target[] existingCakes = FindObjectsByType<Target>();
+        Target[] existingCakes = FindObjectsByType<Target>(FindObjectsSortMode.None);
         foreach (Target cake in existingCakes)
         {
             Destroy(cake.gameObject);
@@ -90,12 +90,15 @@ public class GameManager : MonoBehaviour
             float randomX = Random.Range(minX, maxX);
             Vector3 spawnPos = new Vector3(randomX, spawnY, 0);
 
-            GameObject newCake = Instantiate(cakePrefab, spawnPos, cakePrefab.transform.rotation);
+            int randomSweetIndex = Random.Range(0, sweetPrefabs.Length);
+            GameObject sweetToSpawn = sweetPrefabs[randomSweetIndex];
+
+            GameObject newSweet = Instantiate(sweetToSpawn, spawnPos, sweetToSpawn.transform.rotation);
             
-            Rigidbody2D cakeRb = newCake.GetComponent<Rigidbody2D>();
-            if (cakeRb != null)
+            Rigidbody2D sweetRb = newSweet.GetComponent<Rigidbody2D>();
+            if (sweetRb != null)
             {
-                cakeRb.gravityScale = gravityMultiplier;
+                sweetRb.gravityScale = gravityMultiplier;
             }
         }
     }
